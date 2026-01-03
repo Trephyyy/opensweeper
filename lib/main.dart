@@ -57,7 +57,7 @@ class _MainScreenState extends State<MainScreen> {
     final settings = context.read<SettingsProvider>();
     final gameProvider = context.read<GameProvider>();
     gameProvider.newGame(config: settings.currentGameConfig);
-    
+
     // Navigate to game tab
     setState(() => _currentIndex = 1);
   }
@@ -71,10 +71,7 @@ class _MainScreenState extends State<MainScreen> {
     ];
 
     return Scaffold(
-      body: IndexedStack(
-        index: _currentIndex,
-        children: screens,
-      ),
+      body: IndexedStack(index: _currentIndex, children: screens),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentIndex,
         onDestinationSelected: (index) {

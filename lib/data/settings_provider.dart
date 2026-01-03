@@ -70,7 +70,7 @@ class SettingsProvider extends ChangeNotifier {
       final maxMines = (_customRows * _customCols * 0.8).floor();
       _customMines = mines.clamp(1, maxMines);
     }
-    
+
     if (_selectedConfig.difficulty == Difficulty.custom) {
       _selectedConfig = GameConfig.custom(
         rows: _customRows,

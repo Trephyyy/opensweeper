@@ -1,10 +1,5 @@
 /// Predefined difficulty levels.
-enum Difficulty {
-  beginner,
-  intermediate,
-  expert,
-  custom,
-}
+enum Difficulty { beginner, intermediate, expert, custom }
 
 /// Configuration for a game board.
 class GameConfig {

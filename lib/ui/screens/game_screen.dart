@@ -38,9 +38,7 @@ class _GameScreenState extends State<GameScreen> {
                   status: game.status,
                   onReset: () => _resetGame(game),
                 ),
-                Expanded(
-                  child: _buildBoard(context, game, settings),
-                ),
+                Expanded(child: _buildBoard(context, game, settings)),
               ],
             ),
           ),
@@ -61,9 +59,13 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 
-  Widget _buildBoard(BuildContext context, GameProvider game, SettingsProvider settings) {
+  Widget _buildBoard(
+    BuildContext context,
+    GameProvider game,
+    SettingsProvider settings,
+  ) {
     final board = game.board;
-    
+
     // Calculate if we need zoom (expert and larger grids)
     final needsZoom = board.cols > 16 || board.rows > 16;
     final minScale = needsZoom ? 0.5 : 1.0;
@@ -74,14 +76,14 @@ class _GameScreenState extends State<GameScreen> {
         // Use full available space
         final availableHeight = outerConstraints.maxHeight;
         final availableWidth = outerConstraints.maxWidth;
-        
+
         // Calculate cell size to fit within constraints
         final cellSizeByWidth = availableWidth / board.cols;
         final cellSizeByHeight = availableHeight / board.rows;
-        final cellSize = cellSizeByWidth < cellSizeByHeight 
-            ? cellSizeByWidth 
+        final cellSize = cellSizeByWidth < cellSizeByHeight
+            ? cellSizeByWidth
             : cellSizeByHeight;
-        
+
         final boardWidth = cellSize * board.cols;
         final boardHeight = cellSize * board.rows;
 

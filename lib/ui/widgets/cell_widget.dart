@@ -120,9 +120,7 @@ class _CellWidgetState extends State<CellWidget> {
             width: 0.5,
           ),
         ),
-        child: Center(
-          child: _buildCellContent(context, theme),
-        ),
+        child: Center(child: _buildCellContent(context, theme)),
       ),
     );
   }

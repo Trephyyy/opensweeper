@@ -32,10 +32,7 @@ class CsvExporter {
   /// Export and share the CSV file.
   static Future<void> exportAndShare(List<GameRecord> games) async {
     final filePath = await exportToCsv(games);
-    await Share.shareXFiles(
-      [XFile(filePath)],
-      text: 'OpenSweeper Statistics',
-    );
+    await Share.shareXFiles([XFile(filePath)], text: 'OpenSweeper Statistics');
   }
 
   /// Export to a specific directory (for advanced users).

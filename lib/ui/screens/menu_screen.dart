@@ -49,8 +49,8 @@ class MenuScreen extends StatelessWidget {
               Text(
                 'OpenSweeper',
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+                  fontWeight: FontWeight.bold,
+                ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 32),
@@ -76,10 +76,7 @@ class MenuScreen extends StatelessWidget {
               ),
 
               // Game Options
-              Text(
-                'Options',
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
+              Text('Options', style: Theme.of(context).textTheme.titleMedium),
               const SizedBox(height: 8),
               _GameOptions(),
 
@@ -121,7 +118,9 @@ class MenuScreen extends StatelessWidget {
                           _StatItem(
                             icon: Icons.psychology,
                             label: 'Mode',
-                            value: settings.noGuessMode ? 'No-Guess' : 'Classic',
+                            value: settings.noGuessMode
+                                ? 'No-Guess'
+                                : 'Classic',
                           ),
                         ],
                       ),
@@ -205,10 +204,7 @@ class _DifficultyChip extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(label),
-          Text(
-            subtitle,
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
+          Text(subtitle, style: Theme.of(context).textTheme.bodySmall),
         ],
       ),
       selected: isSelected,
@@ -263,7 +259,8 @@ class _CustomGridOptions extends StatelessWidget {
                   label: 'Mines',
                   value: settings.customMines,
                   min: 1,
-                  max: (settings.customRows * settings.customCols * 0.8).floor(),
+                  max: (settings.customRows * settings.customCols * 0.8)
+                      .floor(),
                   onChanged: (v) => settings.setCustomGrid(mines: v),
                 ),
               ],
@@ -339,8 +336,8 @@ class _NumberInputState extends State<_NumberInput> {
           children: [
             IconButton.outlined(
               icon: const Icon(Icons.remove),
-              onPressed: widget.value > widget.min 
-                  ? () => widget.onChanged(widget.value - 1) 
+              onPressed: widget.value > widget.min
+                  ? () => widget.onChanged(widget.value - 1)
                   : null,
               iconSize: 18,
               constraints: const BoxConstraints(minWidth: 36, minHeight: 36),
@@ -372,8 +369,8 @@ class _NumberInputState extends State<_NumberInput> {
             const SizedBox(width: 8),
             IconButton.outlined(
               icon: const Icon(Icons.add),
-              onPressed: widget.value < widget.max 
-                  ? () => widget.onChanged(widget.value + 1) 
+              onPressed: widget.value < widget.max
+                  ? () => widget.onChanged(widget.value + 1)
                   : null,
               iconSize: 18,
               constraints: const BoxConstraints(minWidth: 36, minHeight: 36),
@@ -395,15 +392,16 @@ class _GameOptions extends StatelessWidget {
             children: [
               SwitchListTile(
                 title: const Text('No-Guess Mode'),
-                subtitle: const Text(
-                  'First click always opens a safe area',
-                ),
+                subtitle: const Text('First click always opens a safe area'),
                 value: settings.noGuessMode,
                 onChanged: settings.setNoGuessMode,
               ),
               const Divider(height: 1),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 12,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -428,8 +426,8 @@ class _GameOptions extends StatelessWidget {
                     Text(
                       'How long to hold for flagging (lower = faster)',
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: Theme.of(context).colorScheme.outline,
-                          ),
+                        color: Theme.of(context).colorScheme.outline,
+                      ),
                     ),
                   ],
                 ),
@@ -461,14 +459,11 @@ class _StatItem extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           value,
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
         ),
-        Text(
-          label,
-          style: Theme.of(context).textTheme.bodySmall,
-        ),
+        Text(label, style: Theme.of(context).textTheme.bodySmall),
       ],
     );
   }

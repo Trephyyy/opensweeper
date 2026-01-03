@@ -29,7 +29,9 @@ class _StatsScreenState extends State<StatsScreen> {
     setState(() => _isLoading = true);
 
     final db = StatsDatabase.instance;
-    final difficulty = _selectedDifficulty == 'All' ? null : _selectedDifficulty;
+    final difficulty = _selectedDifficulty == 'All'
+        ? null
+        : _selectedDifficulty;
 
     final games = difficulty == null
         ? await db.getAllGames()
@@ -75,9 +77,7 @@ class _StatsScreenState extends State<StatsScreen> {
               onRefresh: _loadData,
               child: CustomScrollView(
                 slivers: [
-                  SliverToBoxAdapter(
-                    child: _buildSummaryCard(),
-                  ),
+                  SliverToBoxAdapter(child: _buildSummaryCard()),
                   SliverToBoxAdapter(
                     child: Padding(
                       padding: const EdgeInsets.all(16),
@@ -89,9 +89,7 @@ class _StatsScreenState extends State<StatsScreen> {
                   ),
                   _games.isEmpty
                       ? const SliverFillRemaining(
-                          child: Center(
-                            child: Text('No games played yet!'),
-                          ),
+                          child: Center(child: Text('No games played yet!')),
                         )
                       : SliverList(
                           delegate: SliverChildBuilderDelegate(
@@ -154,14 +152,11 @@ class _StatsScreenState extends State<StatsScreen> {
       children: [
         Text(
           value,
-          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
         ),
-        Text(
-          label,
-          style: Theme.of(context).textTheme.bodySmall,
-        ),
+        Text(label, style: Theme.of(context).textTheme.bodySmall),
       ],
     );
   }
@@ -183,10 +178,7 @@ class _StatsScreenState extends State<StatsScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text(
-            timeStr,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
+          Text(timeStr, style: Theme.of(context).textTheme.bodyLarge),
           Text(
             dateFormat.format(game.timestamp),
             style: Theme.of(context).textTheme.bodySmall,
@@ -206,9 +198,9 @@ class _StatsScreenState extends State<StatsScreen> {
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Export failed: $e')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Export failed: $e')));
       }
     }
   }

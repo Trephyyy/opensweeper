@@ -66,10 +66,7 @@ class StatsDatabase {
   /// Get all game records.
   Future<List<GameRecord>> getAllGames() async {
     final db = await database;
-    final maps = await db.query(
-      tableGames,
-      orderBy: '$columnTimestamp DESC',
-    );
+    final maps = await db.query(tableGames, orderBy: '$columnTimestamp DESC');
     return maps.map((map) => GameRecord.fromMap(map)).toList();
   }
 

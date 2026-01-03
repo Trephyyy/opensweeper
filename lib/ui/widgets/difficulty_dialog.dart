@@ -39,21 +39,13 @@ class _DifficultyDialogState extends State<DifficultyDialog> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            _buildOption(
-              'Beginner',
-              '9×9, 10 mines',
-              Difficulty.beginner,
-            ),
+            _buildOption('Beginner', '9×9, 10 mines', Difficulty.beginner),
             _buildOption(
               'Intermediate',
               '16×16, 40 mines',
               Difficulty.intermediate,
             ),
-            _buildOption(
-              'Expert',
-              '16×30, 99 mines',
-              Difficulty.expert,
-            ),
+            _buildOption('Expert', '16×30, 99 mines', Difficulty.expert),
             _buildOption(
               'Custom',
               '$_customRows×$_customCols, $_customMines mines',
@@ -68,10 +60,7 @@ class _DifficultyDialogState extends State<DifficultyDialog> {
           onPressed: () => Navigator.of(context).pop(),
           child: const Text('Cancel'),
         ),
-        FilledButton(
-          onPressed: _onConfirm,
-          child: const Text('Start'),
-        ),
+        FilledButton(onPressed: _onConfirm, child: const Text('Start')),
       ],
     );
   }
@@ -105,7 +94,8 @@ class _DifficultyDialogState extends State<DifficultyDialog> {
                   ),
                   keyboardType: TextInputType.number,
                   controller: TextEditingController(text: '$_customRows'),
-                  onChanged: (v) => _customRows = int.tryParse(v) ?? _customRows,
+                  onChanged: (v) =>
+                      _customRows = int.tryParse(v) ?? _customRows,
                 ),
               ),
               const SizedBox(width: 16),
@@ -117,7 +107,8 @@ class _DifficultyDialogState extends State<DifficultyDialog> {
                   ),
                   keyboardType: TextInputType.number,
                   controller: TextEditingController(text: '$_customCols'),
-                  onChanged: (v) => _customCols = int.tryParse(v) ?? _customCols,
+                  onChanged: (v) =>
+                      _customCols = int.tryParse(v) ?? _customCols,
                 ),
               ),
             ],

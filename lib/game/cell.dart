@@ -1,9 +1,5 @@
 /// Represents the state of a single cell on the board.
-enum CellState {
-  hidden,
-  revealed,
-  flagged,
-}
+enum CellState { hidden, revealed, flagged }
 
 /// A single cell in the Minesweeper grid.
 class Cell {
@@ -25,11 +21,7 @@ class Cell {
   bool get isFlagged => state == CellState.flagged;
   bool get isHidden => state == CellState.hidden;
 
-  Cell copyWith({
-    bool? isMine,
-    int? adjacentMines,
-    CellState? state,
-  }) {
+  Cell copyWith({bool? isMine, int? adjacentMines, CellState? state}) {
     return Cell(
       row: row,
       col: col,

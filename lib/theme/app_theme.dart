@@ -5,14 +5,14 @@ class AppTheme {
   // Classic Minesweeper number colors
   static const numberColors = [
     Colors.transparent, // 0 - not shown
-    Color(0xFF0000FF),  // 1 - blue
-    Color(0xFF008000),  // 2 - green
-    Color(0xFFFF0000),  // 3 - red
-    Color(0xFF000080),  // 4 - dark blue
-    Color(0xFF800000),  // 5 - maroon
-    Color(0xFF008080),  // 6 - teal
-    Color(0xFF000000),  // 7 - black
-    Color(0xFF808080),  // 8 - gray
+    Color(0xFF0000FF), // 1 - blue
+    Color(0xFF008000), // 2 - green
+    Color(0xFFFF0000), // 3 - red
+    Color(0xFF000080), // 4 - dark blue
+    Color(0xFF800000), // 5 - maroon
+    Color(0xFF008080), // 6 - teal
+    Color(0xFF000000), // 7 - black
+    Color(0xFF808080), // 8 - gray
   ];
 
   /// Get the light theme.
@@ -23,20 +23,14 @@ class AppTheme {
       colorScheme: ColorScheme.fromSeed(
         seedColor: const Color(0xFFC0C0C0),
         brightness: Brightness.light,
-      ).copyWith(
-        surface: const Color(0xFFC0C0C0),
-        onSurface: Colors.black,
-      ),
+      ).copyWith(surface: const Color(0xFFC0C0C0), onSurface: Colors.black),
       scaffoldBackgroundColor: const Color(0xFFE0E0E0),
       appBarTheme: const AppBarTheme(
         backgroundColor: Color(0xFFC0C0C0),
         foregroundColor: Colors.black,
         elevation: 2,
       ),
-      cardTheme: const CardThemeData(
-        color: Color(0xFFC0C0C0),
-        elevation: 2,
-      ),
+      cardTheme: const CardThemeData(color: Color(0xFFC0C0C0), elevation: 2),
       extensions: const [
         MinesweeperTheme(
           cellHidden: Color(0xFFC0C0C0),
@@ -59,20 +53,14 @@ class AppTheme {
       colorScheme: ColorScheme.fromSeed(
         seedColor: const Color(0xFF424242),
         brightness: Brightness.dark,
-      ).copyWith(
-        surface: const Color(0xFF303030),
-        onSurface: Colors.white,
-      ),
+      ).copyWith(surface: const Color(0xFF303030), onSurface: Colors.white),
       scaffoldBackgroundColor: const Color(0xFF212121),
       appBarTheme: const AppBarTheme(
         backgroundColor: Color(0xFF303030),
         foregroundColor: Colors.white,
         elevation: 2,
       ),
-      cardTheme: const CardThemeData(
-        color: Color(0xFF424242),
-        elevation: 2,
-      ),
+      cardTheme: const CardThemeData(color: Color(0xFF424242), elevation: 2),
       extensions: const [
         MinesweeperTheme(
           cellHidden: Color(0xFF505050),
@@ -146,7 +134,8 @@ class MinesweeperTheme extends ThemeExtension<MinesweeperTheme> {
 
 extension MinesweeperThemeExtension on ThemeData {
   MinesweeperTheme get minesweeper =>
-      extension<MinesweeperTheme>() ?? const MinesweeperTheme(
+      extension<MinesweeperTheme>() ??
+      const MinesweeperTheme(
         cellHidden: Color(0xFFC0C0C0),
         cellRevealed: Color(0xFFBDBDBD),
         cellHighlight: Color(0xFFFFFFFF),

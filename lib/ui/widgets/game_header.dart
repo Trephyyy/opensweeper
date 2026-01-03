@@ -97,12 +97,7 @@ class GameHeader extends StatelessWidget {
             bottom: BorderSide(color: theme.cellShadow, width: 2),
           ),
         ),
-        child: Center(
-          child: Text(
-            emoji,
-            style: const TextStyle(fontSize: 28),
-          ),
-        ),
+        child: Center(child: Text(emoji, style: const TextStyle(fontSize: 28))),
       ),
     );
   }

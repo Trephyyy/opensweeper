@@ -4,10 +4,10 @@ import 'difficulty.dart';
 
 /// Game status.
 enum GameStatus {
-  ready,     // Not started yet
-  playing,   // Game in progress
-  won,       // All non-mine cells revealed
-  lost,      // Mine revealed
+  ready, // Not started yet
+  playing, // Game in progress
+  won, // All non-mine cells revealed
+  lost, // Mine revealed
 }
 
 /// The Minesweeper game board with all game logic.
@@ -23,7 +23,7 @@ class Board {
   DateTime? _endTime;
 
   Board({required this.config, int? seed})
-      : seed = seed ?? Random().nextInt(1 << 32) {
+    : seed = seed ?? Random().nextInt(1 << 32) {
     _initializeGrid();
   }
 
@@ -33,7 +33,8 @@ class Board {
   int get remainingMines => config.mines - _flagCount;
   int get rows => config.rows;
   int get cols => config.cols;
-  bool get isGameOver => _status == GameStatus.won || _status == GameStatus.lost;
+  bool get isGameOver =>
+      _status == GameStatus.won || _status == GameStatus.lost;
   bool get hasStarted => _status != GameStatus.ready;
   Duration get elapsedTime {
     if (_startTime == null) return Duration.zero;
@@ -48,10 +49,7 @@ class Board {
   void _initializeGrid() {
     _grid = List.generate(
       config.rows,
-      (row) => List.generate(
-        config.cols,
-        (col) => Cell(row: row, col: col),
-      ),
+      (row) => List.generate(config.cols, (col) => Cell(row: row, col: col)),
     );
   }
 

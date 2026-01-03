@@ -10,7 +10,7 @@ class GameProvider extends ChangeNotifier {
   int _secondsElapsed = 0;
 
   GameProvider({GameConfig? config})
-      : _board = Board(config: config ?? GameConfig.beginner);
+    : _board = Board(config: config ?? GameConfig.beginner);
 
   // Getters
   Board get board => _board;
